@@ -4,7 +4,7 @@
   <subtitle><![CDATA[A love world boy]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://wfsovereign.github.io/"/>
-  <updated>2015-10-25T14:40:45.871Z</updated>
+  <updated>2015-10-25T14:59:33.129Z</updated>
   <id>http://wfsovereign.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://wfsovereign.github.io/2015/10/25/new-begin/"/>
     <id>http://wfsovereign.github.io/2015/10/25/new-begin/</id>
     <published>2015-10-25T12:17:37.000Z</published>
-    <updated>2015-10-25T14:40:45.871Z</updated>
+    <updated>2015-10-25T14:59:33.129Z</updated>
     <content type="html"><![CDATA[<p>时隔半年之久，终于，我又拾起了blog。</p>
 <hr>
 <p>自去年十月份开始正式走上程序员这条道路起，学习也一年有余。由一次意外得到的消息加入Thoughtworks的培训项目– Thoughtworks Academy，在这里，自学两月javascript、html、css等前端基础，然后在仝老师、玉姐、硕哥等的辅导下，接触互联网技术的最前沿思想，学习Thoughtworks的软件制作流程、TDD开发模式、团队合作，收获了很多…这段日子让我能够独立的去面对新技术而游刃有余，时常想念这段美好的日子，好想你们啊～</p>
@@ -35,6 +35,8 @@
     </summary>
     
       <category term="成长" scheme="http://wfsovereign.github.io/tags/%E6%88%90%E9%95%BF/"/>
+    
+      <category term="独立" scheme="http://wfsovereign.github.io/tags/%E7%8B%AC%E7%AB%8B/"/>
     
       <category term="经历" scheme="http://wfsovereign.github.io/categories/%E7%BB%8F%E5%8E%86/"/>
     
