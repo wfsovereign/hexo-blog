@@ -319,6 +319,112 @@
             
             
               
+                <a class="post-title-link" href="/2015/04/22/设计模式之代理模式/" itemprop="url">
+                  设计模式之代理模式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-04-22T16:39:00+08:00" content="2015-04-22">
+              2015-04-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/22/设计模式之代理模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/22/设计模式之代理模式/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            该篇讲主要讲述我学习代理模式的心得记录。
+代理模式基本属性1、定义一个类可以作为其它东西的接口。代理者可以作任何东西的接口：网络连接、存储器中的大对象、文件或其它昂贵或无法复制的资源。而代理又分为静态代理和动态代理，其中动态代理具有更强的灵活性，不用在我们设计实现的时候就指定某一个代理类来代理哪一个被代理对象，而是把这种实现推迟到程序运行时。
+2、应用场景功能需要被授予不同的权限时，如，注册与未注册的用户。
+3、优点一个复杂对象可以由多个代理来引用，这样便节省了系统资源。
+实例讲解1、静态代理首先定义一个抽象类AbstractObject并在其内部定义一个抽象的方法，作为代理和被代理类的父类，
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/04/22/设计模式之代理模式/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 <a class="post-title-link" href="/2015/04/06/hello-world/" itemprop="url">
                   Hello World
                 </a>
@@ -394,9 +500,222 @@ More in
 
 
     
+      
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                <a class="post-title-link" href="/2015/03/28/设计模式之单例模式/" itemprop="url">
+                  设计模式之单例模式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-03-28T16:40:00+08:00" content="2015-03-28">
+              2015-03-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/03/28/设计模式之单例模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/28/设计模式之单例模式/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            各个模式均有自己的出现的理由以及应用场景，相较于普通代码有一定的优势的时候的，设计模式便也应运而生了。今天所要记录的单例模式，它的优势在哪呢？
+单例模式简历1、出生原因当我们在一个管理者管辖范围不明确，各个部门间的领导互相插手彼此部门间的事物，员工一会被这个boss分配任务，一会被那个boss分配任务的公司里，作为一个普通员工，您怎么想？对于一个管理层这样混乱与模糊的公司，您怎么看？在一个项目中也一样，我们的某些类，一会被这个实例化，一会被那个实例化，而这个类的功能却是很单一的管理着同样一个领域，这个时候，你会不会想着做点什么来结束这个混乱的现象呢？重构、优化一下吧，特定的领域管理交由一个固定
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/03/28/设计模式之单例模式/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                <a class="post-title-link" href="/2015/03/23/设计模式之工厂模式/" itemprop="url">
+                  设计模式之工厂模式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-03-23T15:23:00+08:00" content="2015-03-23">
+              2015-03-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/03/23/设计模式之工厂模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/23/设计模式之工厂模式/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            最近在学习设计模式的路上越走越远…
+今天主要记录记录一下学习的工厂模式。
+工厂模式简历1、由来　　　　当我们创建一个对象，而这个对象的创建过程序纷繁复杂，可能导致大量的重复代码的时候，工厂模式出现了。工厂方法模式通过定义一个单独的创建对象的方法来解决这些问题。由子类实现这个方法来创建具体类型的对象。也就是说，在我们的实际运用中，工厂就是一个用来创建其他对象的对象。
+2、实质定义一个创建对象的接口，但让实现这个接口的类来决定实例化哪个类。工厂方法让类的实例化推迟到子类中进行。
+3、现状介绍工厂模式目前有三个分支，简单工厂模式，工厂方法模式和抽象工厂方法模式，其中，我主要学习的是抽象工厂方法模式，
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/03/23/设计模式之工厂模式/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
  </div>
 
@@ -432,21 +751,21 @@ More in
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

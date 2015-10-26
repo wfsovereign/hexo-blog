@@ -36,7 +36,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="java,工厂模式,设计模式," />
 
 
 
@@ -47,19 +47,25 @@
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="最近在学习设计模式的路上越走越远…
+今天主要记录记录一下学习的工厂模式。
+工厂模式简历1、由来　　　　当我们创建一个对象，而这个对象的创建过程序纷繁复杂，可能导致大量的重复代码的时候，工厂模式出现了。工厂方法模式通过定义一个单独的创建对象的方法来解决这些问题。由子类实现这个方法来创建具体类型的对象。也就是说，在我们的实际运用中，工厂就是一个用来创建其他对象的对象。
+2、实质定义一个创建对象的接口，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://wfsovereign.github.io/2015/04/06/hello-world/index.html">
+<meta property="og:title" content="设计模式之工厂模式">
+<meta property="og:url" content="http://wfsovereign.github.io/2015/03/23/设计模式之工厂模式/index.html">
 <meta property="og:site_name" content="wfsoverign'notes">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2015-10-25T13:59:11.013Z">
+<meta property="og:description" content="最近在学习设计模式的路上越走越远…
+今天主要记录记录一下学习的工厂模式。
+工厂模式简历1、由来　　　　当我们创建一个对象，而这个对象的创建过程序纷繁复杂，可能导致大量的重复代码的时候，工厂模式出现了。工厂方法模式通过定义一个单独的创建对象的方法来解决这些问题。由子类实现这个方法来创建具体类型的对象。也就是说，在我们的实际运用中，工厂就是一个用来创建其他对象的对象。
+2、实质定义一个创建对象的接口，">
+<meta property="og:updated_time" content="2015-10-26T14:10:37.104Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="设计模式之工厂模式">
+<meta name="twitter:description" content="最近在学习设计模式的路上越走越远…
+今天主要记录记录一下学习的工厂模式。
+工厂模式简历1、由来　　　　当我们创建一个对象，而这个对象的创建过程序纷繁复杂，可能导致大量的重复代码的时候，工厂模式出现了。工厂方法模式通过定义一个单独的创建对象的方法来解决这些问题。由子类实现这个方法来创建具体类型的对象。也就是说，在我们的实际运用中，工厂就是一个用来创建其他对象的对象。
+2、实质定义一个创建对象的接口，">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -71,7 +77,7 @@ Quick">
 
 
 
-  <title> Hello World | wfsoverign'notes </title>
+  <title> 设计模式之工厂模式 | wfsoverign'notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -216,7 +222,7 @@ Quick">
             
             
               
-                Hello World
+                设计模式之工厂模式
               
             
           </h1>
@@ -225,19 +231,34 @@ Quick">
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-04-06T20:17:37+08:00" content="2015-04-06">
-              2015-04-06
+            <time itemprop="dateCreated" datetime="2015-03-23T15:23:00+08:00" content="2015-03-23">
+              2015-03-23
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/04/06/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/06/hello-world/" itemprop="commentsCount"></span>
+                <a href="/2015/03/23/设计模式之工厂模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/23/设计模式之工厂模式/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -256,36 +277,113 @@ Quick">
       
 
       
-        <span itemprop="articleBody"><p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <span itemprop="articleBody"><p>最近在学习设计模式的路上越走越远…</p>
+<p>今天主要记录记录一下学习的工厂模式。</p>
+<h2 id="工厂模式简历">工厂模式简历</h2><h3 id="1、由来">1、由来　　　　</h3><p>当我们创建一个对象，而这个对象的创建过程序纷繁复杂，可能导致大量的重复代码的时候，工厂模式出现了。工厂方法模式通过定义一个单独的创建对象的方法来解决这些问题。由子类实现这个方法来创建具体类型的对象。也就是说，在我们的实际运用中，工厂就是一个用来创建其他对象的对象。</p>
+<h3 id="2、实质">2、实质</h3><p>定义一个创建对象的接口，但让实现这个接口的类来决定实例化哪个类。工厂方法让类的实例化推迟到子类中进行。</p>
+<h3 id="3、现状介绍">3、现状介绍</h3><p>工厂模式目前有三个分支，简单工厂模式，工厂方法模式和抽象工厂方法模式，其中，我主要学习的是抽象工厂方法模式，因为该方法是工厂模式中最高层的方法。简单工厂模式，工厂类根据传参不同得到不同的产品。工厂方法模式能够创建这个系列中的各种产品，比如，iphone的各种配件。而抽象工厂模式作为更高级的模式，它可以创建整个苹果公司各个产品流水线，比如，他可以创建生产iphone配件的工厂，可以创建生产ipad配件的工厂等等。那么，抽象工厂模式与工厂方法模式的最大区别就在于，工厂方法模式针对的是一个产品等级结构，它能够创建这一个等级结构中的产品族；而抽象工厂模式则需要面对多个产品等级结构，也就是说，抽象工厂方法模式可以工厂方法模式中的工厂。</p>
+<h3 id="4、三分支的关系">4、三分支的关系</h3><p>简单工厂模式通常伴随着对象的具体类型与工厂具体类型的一一对应，客户端代码根据需要选择合适的具体类型工厂使用。当这个选择包含复杂的逻辑时，就可以创建一个单一的工厂类，用以包含这种选择逻辑，根据参数的不同选择实现不同的具体对象。这个工厂类不需要由每个具体产品实现一个自己的具体的工厂类，所以可以将工厂方法设置为静态方法，这就有了工厂方法模式。而抽象工厂方法模式便是封装着这样一组有着共同主题的工厂方法模式中的工厂。</p>
+<p>　　</p>
+<h2 id="三分支的应用场景">三分支的应用场景</h2><h3 id="1、简单工厂模式">1、简单工厂模式</h3><p>当我们的主程序中需要自己手动初始化一个对象，但是我们并不想关注具体的初始化过程，这个时候简单工厂模式就是您的选择。</p>
+<h3 id="2、工厂方法模式">2、工厂方法模式</h3><p>当你觉得传入参数的这种简单的工厂模式让你程序容易出错，并且程序中的if-else让你的程序看起来有些臃肿，这个时候工厂方法模式就是您的选择。</p>
+<h3 id="3、抽象工厂方法模式">3、抽象工厂方法模式</h3><p>当你工厂类需要修改时，而在工厂方法模式中需要修改原有的工厂类，这就违背了设计原则中的OCP（开放闭合原则），这个时候，抽象工厂方法模式就是您的选择。 </p>
+<h2 id="实际应用">实际应用</h2><p>说不如做，看的再多不自己亲手做一做来的有效率，这便是我学习工厂模式之后的心得。</p>
+<p>首先，模拟场景。创建宝马车，X6和5系的，那么首先的有一个抽象的汽车工厂，CarFactory，由它来生成X6和5系的工厂，一个汽车工厂生产出来的汽车至少得有个壳，发动机，变速箱啥的，所有就有了方法。创建CarFactory如下：</p>
+<pre><code><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">CarFactory</span> {
+  <span class="function"><span class="keyword">public</span> CarFrame <span class="title">createCarFrame</span>(<span class="params"></span>)</span>;
+  <span class="function"><span class="keyword">public</span> Engine <span class="title">createEngine</span>(<span class="params"></span>)</span>;
+  <span class="function"><span class="keyword">public</span> Gearbox <span class="title">createGearbox</span>(<span class="params"></span>)</span>;
+ }
+</code></pre><p>一个汽车的基本配件都出来了，那么所有的配件都应该有各自的接口，我们再分别创建Engine，Gearbox和CarFrame，Engine如下（Gearbox、CarFrame类似）：</p>
+<pre><code><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">Engine</span> {
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createEngine</span>(<span class="params"></span>)</span>;
+ }
+</code></pre><p>然后我们的X6和5系的都应该有这些个接口吧，我们在分别创建他们各自的Engine，Gearbox和CarFrame，X6的Engine：</p>
+<pre><code> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BwmXSixEngine</span> <span class="keyword">implements</span> <span class="title">Engine</span> </span>{
+     <span class="keyword">private</span> String emissions;
+     <span class="function"><span class="keyword">public</span> <span class="title">BwmXSixEngine</span><span class="params">(String emissions)</span></span>{
+         <span class="keyword">this</span>.emissions = emissions;
+   }
+<span class="annotation">@Override</span>
+<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createEngine</span><span class="params">()</span> </span>{
+     System.out.println(<span class="string">"this BWM XDrive engine,and emissions is "</span>+ <span class="keyword">this</span>.emissions);
+     }
+}
+</code></pre><p>5系的Engine：</p>
+<pre><code> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BwmFiveSeriesEngine</span> <span class="keyword">implements</span> <span class="title">Engine</span> </span>{
+<span class="keyword">private</span> <span class="keyword">final</span> String emissions;
+<span class="function"><span class="keyword">public</span> <span class="title">BwmFiveSeriesEngine</span><span class="params">(String emissions)</span></span>{
+    <span class="keyword">this</span>.emissions = emissions;
+    }
+ <span class="annotation">@Override</span>
+   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createEngine</span><span class="params">()</span> </span>{
+       System.out.println(<span class="string">"this is BWMFiveSeriesEngine it's emissions of "</span>+<span class="keyword">this</span>.emissions);
+}
+}
+</code></pre><p>现在，X6和5系就只差装箱，我们就来创建他们的工厂吧，5系：</p>
+<pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BwmFiveSeriesFactory</span> <span class="keyword">implements</span> <span class="title">CarFactory</span></span>{
+<span class="annotation">@Override</span>
+ <span class="function"><span class="keyword">public</span> CarFrame <span class="title">createCarFrame</span><span class="params">()</span> </span>{
+  <span class="keyword">return</span> <span class="keyword">new</span> BwmFiveSeriesCarFrame(<span class="string">"中大型车"</span>, <span class="keyword">new</span> <span class="keyword">int</span>[]{<span class="number">5047</span>,<span class="number">1860</span>,<span class="number">1491</span>},<span class="string">"4门5座三厢车"</span>);
+}
+<span class="annotation">@Override</span>
+ <span class="function"><span class="keyword">public</span> Engine <span class="title">createEngine</span><span class="params">()</span> </span>{
+      <span class="keyword">return</span> <span class="keyword">new</span> BwmFiveSeriesEngine(<span class="string">"2.0T"</span>);
+  }
+<span class="annotation">@Override</span>
+<span class="function"><span class="keyword">public</span> Gearbox <span class="title">createGearbox</span><span class="params">()</span> </span>{
+    <span class="keyword">return</span> <span class="keyword">new</span> BwmFIveSeriesGearbox(<span class="string">"8挡手自一体"</span>);
+}
+}
+</code></pre><p>X6：</p>
+<pre><code> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BwmXSixFactory</span> <span class="keyword">implements</span> <span class="title">CarFactory</span> </span>{
+    <span class="annotation">@Override</span>
+    <span class="function"><span class="keyword">public</span> CarFrame <span class="title">createCarFrame</span><span class="params">()</span> </span>{
+        <span class="keyword">return</span> <span class="keyword">new</span> BwmXSixCarFrame(<span class="string">"中大型SUV"</span>,<span class="keyword">new</span> <span class="keyword">int</span>[]{<span class="number">4929</span>,<span class="number">1983</span>,<span class="number">1709</span>},<span class="string">"5门5座SUV"</span>);
+    }
+   <span class="annotation">@Override</span>
+    <span class="function"><span class="keyword">public</span> Engine <span class="title">createEngine</span><span class="params">()</span> </span>{
+        <span class="keyword">return</span> <span class="keyword">new</span> BwmXSixEngine(<span class="string">"3.0T"</span>);
+   }
+   <span class="annotation">@Override</span>
+     <span class="function"><span class="keyword">public</span> Gearbox <span class="title">createGearbox</span><span class="params">()</span> </span>{
+       <span class="keyword">return</span> <span class="keyword">new</span> BwmXSixGearbox(<span class="string">"8挡手自一体"</span>);
+   }
+}
+</code></pre><p>程序写到这里也快结束了，我们自己在写一个汽车超市来生成这些对象就好了，希望你有一次愉快的购物经历，哈哈～</p>
+<h2 id="总结">总结</h2><p>在抽象工厂模式的运用中，需要有一个总的抽象工厂，这个工厂制造可以生产具体东西的工厂类，比如，CarFactory和BwmXSixFactory之间的关系。然后就是接口的运用。接口对于高抽象层级的类有很大作用，站在高处便能规定对继承该接口的类的行为，但并不具体到每一个继承的类的行为。最后，工厂模式成功的隐藏了类的行为，满足迪米特法则，调用者根本不关心怎么实现的，只要一个接口可以调用便行。</p>
+<p>自己在设计模式这一块还比较弱，以后还需多多学习。设计模式每一个都不是太难，重要的是各个击破之后，将他们拿捏在手中能够灵活的运用到实例的工作中。所以，重要的还是自己能力的提升，加油～</p>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag">#java</a>
+          
+            <a href="/tags/工厂模式/" rel="tag">#工厂模式</a>
+          
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/03/28/设计模式之单例模式/" rel="next" title="设计模式之单例模式">
-                <i class="fa fa-chevron-left"></i> 设计模式之单例模式
+              <a href="/2015/02/06/浅析javascript原型与对象/" rel="next" title="浅析javascript原型与对象">
+                <i class="fa fa-chevron-left"></i> 浅析javascript原型与对象
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/04/22/设计模式之代理模式/" rel="prev" title="设计模式之代理模式">
-                设计模式之代理模式 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/03/28/设计模式之单例模式/" rel="prev" title="设计模式之单例模式">
+                设计模式之单例模式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -311,8 +409,8 @@ Quick">
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/04/06/hello-world/"
-                   data-title="Hello World" data-url="http://wfsovereign.github.io/2015/04/06/hello-world/">
+              <div class="ds-thread" data-thread-key="2015/03/23/设计模式之工厂模式/"
+                   data-title="设计模式之工厂模式" data-url="http://wfsovereign.github.io/2015/03/23/设计模式之工厂模式/">
               </div>
             
           </div>
@@ -431,7 +529,7 @@ Quick">
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick_Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create_a_new_post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run_server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate_static_files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy_to_remote_sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂模式简历"><span class="nav-number">1.</span> <span class="nav-text">工厂模式简历</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、由来"><span class="nav-number">1.1.</span> <span class="nav-text">1、由来　　　　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、实质"><span class="nav-number">1.2.</span> <span class="nav-text">2、实质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、现状介绍"><span class="nav-number">1.3.</span> <span class="nav-text">3、现状介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、三分支的关系"><span class="nav-number">1.4.</span> <span class="nav-text">4、三分支的关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三分支的应用场景"><span class="nav-number">2.</span> <span class="nav-text">三分支的应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、简单工厂模式"><span class="nav-number">2.1.</span> <span class="nav-text">1、简单工厂模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、工厂方法模式"><span class="nav-number">2.2.</span> <span class="nav-text">2、工厂方法模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、抽象工厂方法模式"><span class="nav-number">2.3.</span> <span class="nav-text">3、抽象工厂方法模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实际应用"><span class="nav-number">3.</span> <span class="nav-text">实际应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

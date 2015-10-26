@@ -36,7 +36,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="java,单例模式,设计模式," />
 
 
 
@@ -47,19 +47,19 @@
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="各个模式均有自己的出现的理由以及应用场景，相较于普通代码有一定的优势的时候的，设计模式便也应运而生了。今天所要记录的单例模式，它的优势在哪呢？
+单例模式简历1、出生原因当我们在一个管理者管辖范围不明确，各个部门间的领导互相插手彼此部门间的事物，员工一会被这个boss分配任务，一会被那个boss分配任务的公司里，作为一个普通员工，您怎么想？对于一个管理层这样混乱与模糊的公司，您怎么看？在一个项目中也">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://wfsovereign.github.io/2015/04/06/hello-world/index.html">
+<meta property="og:title" content="设计模式之单例模式">
+<meta property="og:url" content="http://wfsovereign.github.io/2015/03/28/设计模式之单例模式/index.html">
 <meta property="og:site_name" content="wfsoverign'notes">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2015-10-25T13:59:11.013Z">
+<meta property="og:description" content="各个模式均有自己的出现的理由以及应用场景，相较于普通代码有一定的优势的时候的，设计模式便也应运而生了。今天所要记录的单例模式，它的优势在哪呢？
+单例模式简历1、出生原因当我们在一个管理者管辖范围不明确，各个部门间的领导互相插手彼此部门间的事物，员工一会被这个boss分配任务，一会被那个boss分配任务的公司里，作为一个普通员工，您怎么想？对于一个管理层这样混乱与模糊的公司，您怎么看？在一个项目中也">
+<meta property="og:updated_time" content="2015-10-26T14:10:37.100Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="设计模式之单例模式">
+<meta name="twitter:description" content="各个模式均有自己的出现的理由以及应用场景，相较于普通代码有一定的优势的时候的，设计模式便也应运而生了。今天所要记录的单例模式，它的优势在哪呢？
+单例模式简历1、出生原因当我们在一个管理者管辖范围不明确，各个部门间的领导互相插手彼此部门间的事物，员工一会被这个boss分配任务，一会被那个boss分配任务的公司里，作为一个普通员工，您怎么想？对于一个管理层这样混乱与模糊的公司，您怎么看？在一个项目中也">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -71,7 +71,7 @@ Quick">
 
 
 
-  <title> Hello World | wfsoverign'notes </title>
+  <title> 设计模式之单例模式 | wfsoverign'notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -216,7 +216,7 @@ Quick">
             
             
               
-                Hello World
+                设计模式之单例模式
               
             
           </h1>
@@ -225,19 +225,34 @@ Quick">
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-04-06T20:17:37+08:00" content="2015-04-06">
-              2015-04-06
+            <time itemprop="dateCreated" datetime="2015-03-28T16:40:00+08:00" content="2015-03-28">
+              2015-03-28
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/04/06/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/06/hello-world/" itemprop="commentsCount"></span>
+                <a href="/2015/03/28/设计模式之单例模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/28/设计模式之单例模式/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -256,36 +271,97 @@ Quick">
       
 
       
-        <span itemprop="articleBody"><p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <span itemprop="articleBody"><p>各个模式均有自己的出现的理由以及应用场景，相较于普通代码有一定的优势的时候的，设计模式便也应运而生了。今天所要记录的单例模式，它的优势在哪呢？</p>
+<h2 id="单例模式简历">单例模式简历</h2><h3 id="1、出生原因">1、出生原因</h3><p>当我们在一个管理者管辖范围不明确，各个部门间的领导互相插手彼此部门间的事物，员工一会被这个boss分配任务，一会被那个boss分配任务的公司里，作为一个普通员工，您怎么想？对于一个管理层这样混乱与模糊的公司，您怎么看？在一个项目中也一样，我们的某些类，一会被这个实例化，一会被那个实例化，而这个类的功能却是很单一的管理着同样一个领域，这个时候，你会不会想着做点什么来结束这个混乱的现象呢？重构、优化一下吧，特定的领域管理交由一个固定的对象来管理，那么，这个时候，单例模式就出现了。</p>
+<h3 id="2、定义">2、定义</h3><p>单例对象的类必须保证只有一个实例存在，通过阻止外部实例化和修改，来控制所创建的对象的数量。</p>
+<h3 id="3、适用情况">3、适用情况</h3><p>整个系统只需要拥有一个的全局对象，这样有利于我们协调系统整体的行为。比如在某个服务器程序中，该服务器的配置信息存放在一个文件中，这些配置数据由一个单例对象统一读取，然后服务进程中的其他对象再通过这个单例对象获取这些配置信息。这种方式简化了在复杂环境下的配置管理。</p>
+<h3 id="4、实现思路">4、实现思路</h3><p>一个类能返回对象一个引用(永远是同一个)和一个获得该实例的方法（必须是静态方法，通常使用getInstance这个名称）；当我们调用这个方法时，如果类持有的引用不为空就返回这个引用，如果类保持的引用为空就创建该类的实例并将实例的引用赋予该类保持的引用；同时我们还将该类的构造函数定义为私有方法，这样其他处的代码就无法通过调用该类的构造函数来实例化该类的对象，只有通过该类提供的静态方法来得到该类的唯一实例。</p>
+<h3 id="5、亮点">5、亮点</h3><p>整个系统中只有这么一个实例对象，方便各处的运用，也方便管理该对象所要管理的东西。</p>
+<h2 id="实例讲解">实例讲解</h2><p>接下来，我们通过三个不同层次的单例模式实例，来较为深入的理解在java代码中如何实现及其原理。</p>
+<p>首先，在我们的level1包下面创建Singleton类，</p>
+<pre><code>public class Singleton {
+ <span class="keyword"> private</span><span class="keyword"> static</span> Singleton<span class="instruction"> instance </span> = null;
+  <span class="keyword"> public</span><span class="keyword"> static</span> Singleton<span class="function"> getInstance(</span><span class="function">)</span>{
+      <span class="function"> if(</span>instance == null<span class="function">)</span>{
+         <span class="instruction"> instance </span>=<span class="instruction"> new </span>Singleton(<span class="function">)</span>;
+      }
+      <span class="instruction"> return </span>instance;
+   }
+   <span class="keyword"> private</span><span class="function"> Singleton(</span><span class="function">)</span> {}
+   <span class="keyword"> public</span> void<span class="function"> doSomething(</span><span class="function">)</span>{
+     <span class="function"> System.out.println(</span><span class="string">"'how are you'"</span><span class="function">)</span>;
+  }
+}
+</code></pre><p>将Singleton的构造函数私有化，阻止外部实例化，再通过调用一个共有的接口getInstance（）方法，首先if（instance == null）判断其是否创建，再返回instance对象。这一切看起来都还挺不错的，一环接一环的保证了咱们Singleton类只返回一个实例化对象instance。可是真的是这样吗？让我们的大脑跑起A、B双线程来，假如当A准备创建instance的时候B正好进行if（）判断语句，这个时候instance == null 是要返回true的，那么，这种情况肯定就会创建两个instance对象了，所有，这个实现方法在多线程里，是不安全的单例模式，或者说多线程情况下，这种实现不合理。</p>
+<p>那么，开动我们的大脑，想想办法来控制他的实例化判断。于是，会写出如下代码：</p>
+<pre><code><span class="keyword"> public</span> class Singleton {
+  <span class="keyword"> private</span><span class="keyword"> static</span> Singleton<span class="instruction"> instance </span>= null;
+ <span class="keyword"> public</span><span class="keyword"> static</span> Singleton<span class="function"> getInstance(</span><span class="function">)</span> {
+   <span class="instruction"> if </span>(instance == null<span class="function">)</span> {
+      synchronized<span class="function"> (</span>Singleton.class<span class="function">)</span> {                   <span class="instruction"> if </span>(instance == null<span class="function">)</span> {
+       <span class="instruction"> instance </span>=<span class="instruction"> new </span>Singleton(<span class="function">)</span>;
+                 }
+        }
+      }
+     <span class="instruction"> return </span>instance;
+  }
+   <span class="keyword"> private</span><span class="function"> Singleton(</span><span class="function">)</span> {
+  }
+ <span class="keyword"> public</span> void<span class="function"> doSomething(</span><span class="function">)</span> {
+     <span class="function"> System.out.println(</span><span class="string">"'how are you'"</span><span class="function">)</span>;
+  }
+}
+</code></pre><p>我们通过double-checked-locking的方法来阻止其多线程运行。当getInstance（）方法被调用的时候，首先进行null值检测，若是false直接返回instance，否则，运行同步锁，（synchronized，它用来修饰一个方法或者一个代码块的时候，能够保证在同一时刻最多只有一个线程执行该段代码），然后再进行null值检测，返回instance。这样，我们的程序就没有多线程情况下被多次创建的可能。感觉，程序写到这里，已经是很酷了，其实我也觉得，哈哈。不过，当我们了解创建一个变量的步骤时，可能就会有疑问了。</p>
+<p>创建一个变量，有以下几个步骤：申请一块内存，调用构造方法进行初始化，分配一个指针指向这块内存。而这些都是JVM来执行，但是JVM仅仅是一个标准，没有规定编译器优化的内容，导致其可以自由进行优化，在不改变原来语义的情况下，通过调整语句顺序，来让程序运行的更快。那么，就有可能会出现这种情况：当A线程开始创建Singleton实例时，B线程调用getInstance（）方法检测null时，假如此时A已经将instance指向了那块内存，但还没有赋值，那么B线程检测null时会直接返回instance，但是instance的构造并没有完成，程序便出错了。</p>
+<p>这可让我们很是懊恼，怎么感觉处处碰壁的样子，难道JAVA就不能安全的实现单例模式吗？结果肯定是有的，平下心来，我们来看看接下来的实现：</p>
+<pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Singleton</span> {
+   <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span>(<span class="params"></span>) </span>{
+   }
+     <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title">SingletonInstance</span> {
+       <span class="keyword">private</span> <span class="keyword">static</span> final Singleton instance = <span class="keyword">new</span> Singleton();
+   }
+     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span>(<span class="params"></span>) </span>{
+      <span class="keyword">return</span> SingletonInstance.instance;
+  }   
+  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSomething</span>(<span class="params"></span>) </span>{
+      System.<span class="keyword">out</span>.println(<span class="string">"'how are you'"</span>);
+  }
+}
+</code></pre><p>使用java静态内部类，JVM能够保证当一个类被加载时，这个加载过程是互斥的。调用getInstance（）方法时，首先加载SingletonInstance类，这个类有一个static实例，所以需要调用Singleton的构造方法，最后getInstance将这个instance返回给使用者。</p>
+<h2 id="总结">总结</h2><p>通过学习单例模式之后，感觉学习一门语言，仅仅浅显的学习是不够的，有时候，你仅仅知道怎么用，你可能永远都写不出好的程序，这不是危言耸听。据我所知，优秀的程序员，几乎都学习过编译原理，当然，信息来源于知乎，因为自己平时知乎浏览的要多一些。所以，编译原理，已经被我提上今后的日程表了。</p>
+<p>设计模式这一块，可能得暂时停下来了，因为有了新的任务，不过剩下的一篇代理模式我会抽空更新的，这是我的承诺@杜珊</p>
+<p><strong>加油吧，大家～！！</strong></p>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag">#java</a>
+          
+            <a href="/tags/单例模式/" rel="tag">#单例模式</a>
+          
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/03/28/设计模式之单例模式/" rel="next" title="设计模式之单例模式">
-                <i class="fa fa-chevron-left"></i> 设计模式之单例模式
+              <a href="/2015/03/23/设计模式之工厂模式/" rel="next" title="设计模式之工厂模式">
+                <i class="fa fa-chevron-left"></i> 设计模式之工厂模式
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/04/22/设计模式之代理模式/" rel="prev" title="设计模式之代理模式">
-                设计模式之代理模式 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/04/06/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -311,8 +387,8 @@ Quick">
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/04/06/hello-world/"
-                   data-title="Hello World" data-url="http://wfsovereign.github.io/2015/04/06/hello-world/">
+              <div class="ds-thread" data-thread-key="2015/03/28/设计模式之单例模式/"
+                   data-title="设计模式之单例模式" data-url="http://wfsovereign.github.io/2015/03/28/设计模式之单例模式/">
               </div>
             
           </div>
@@ -431,7 +507,7 @@ Quick">
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick_Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create_a_new_post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run_server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate_static_files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy_to_remote_sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#单例模式简历"><span class="nav-number">1.</span> <span class="nav-text">单例模式简历</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、出生原因"><span class="nav-number">1.1.</span> <span class="nav-text">1、出生原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、定义"><span class="nav-number">1.2.</span> <span class="nav-text">2、定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、适用情况"><span class="nav-number">1.3.</span> <span class="nav-text">3、适用情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、实现思路"><span class="nav-number">1.4.</span> <span class="nav-text">4、实现思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、亮点"><span class="nav-number">1.5.</span> <span class="nav-text">5、亮点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例讲解"><span class="nav-number">2.</span> <span class="nav-text">实例讲解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

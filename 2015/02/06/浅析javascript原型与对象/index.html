@@ -36,7 +36,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="javascript,原型,对象," />
 
 
 
@@ -47,19 +47,19 @@
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="在我学习与使用javascript三个月中，我一直对javascript的继承关系以及prototype理解不清，导致很多时候为什么这么用说不出个所以然来。截止到本周为止，通过之前的学习以及自己的再学习，自我感觉算是对这一块有了较为清晰的认识，此文将谈谈我对javascript原型与继承的理解，在此之前，我们首先要知道一些基本的知识。 
+知识铺垫1、数据类型JavaScript中的数据类型在曾经我">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://wfsovereign.github.io/2015/04/06/hello-world/index.html">
+<meta property="og:title" content="浅析javascript原型与对象">
+<meta property="og:url" content="http://wfsovereign.github.io/2015/02/06/浅析javascript原型与对象/index.html">
 <meta property="og:site_name" content="wfsoverign'notes">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2015-10-25T13:59:11.013Z">
+<meta property="og:description" content="在我学习与使用javascript三个月中，我一直对javascript的继承关系以及prototype理解不清，导致很多时候为什么这么用说不出个所以然来。截止到本周为止，通过之前的学习以及自己的再学习，自我感觉算是对这一块有了较为清晰的认识，此文将谈谈我对javascript原型与继承的理解，在此之前，我们首先要知道一些基本的知识。 
+知识铺垫1、数据类型JavaScript中的数据类型在曾经我">
+<meta property="og:updated_time" content="2015-10-26T13:52:01.656Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="浅析javascript原型与对象">
+<meta name="twitter:description" content="在我学习与使用javascript三个月中，我一直对javascript的继承关系以及prototype理解不清，导致很多时候为什么这么用说不出个所以然来。截止到本周为止，通过之前的学习以及自己的再学习，自我感觉算是对这一块有了较为清晰的认识，此文将谈谈我对javascript原型与继承的理解，在此之前，我们首先要知道一些基本的知识。 
+知识铺垫1、数据类型JavaScript中的数据类型在曾经我">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -71,7 +71,7 @@ Quick">
 
 
 
-  <title> Hello World | wfsoverign'notes </title>
+  <title> 浅析javascript原型与对象 | wfsoverign'notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -216,7 +216,7 @@ Quick">
             
             
               
-                Hello World
+                浅析javascript原型与对象
               
             
           </h1>
@@ -225,19 +225,34 @@ Quick">
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-04-06T20:17:37+08:00" content="2015-04-06">
-              2015-04-06
+            <time itemprop="dateCreated" datetime="2015-02-06T14:24:00+08:00" content="2015-02-06">
+              2015-02-06
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/04/06/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/06/hello-world/" itemprop="commentsCount"></span>
+                <a href="/2015/02/06/浅析javascript原型与对象/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/06/浅析javascript原型与对象/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -256,36 +271,56 @@ Quick">
       
 
       
-        <span itemprop="articleBody"><p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <span itemprop="articleBody"><p>在我学习与使用javascript三个月中，我一直对javascript的继承关系以及prototype理解不清，导致很多时候为什么这么用说不出个所以然来。截止到本周为止，通过之前的学习以及自己的再学习，自我感觉算是对这一块有了较为清晰的认识，此文将谈谈我对javascript原型与继承的理解，在此之前，我们首先要知道一些基本的知识。 </p>
+<h2 id="知识铺垫">知识铺垫</h2><h3 id="1、数据类型">1、数据类型</h3><p>JavaScript中的数据类型在曾经我也有提到过，它包括未定义值（undefined），空值（null），布尔值（boolean），数字（number），字符串（string）以及对象（object），而对象中又包含特殊对象数组（array），并且函数也是对象。其中，字符串（string），对象（object）等都是由构造函数来实现的。讲到这里又得说说JavaScript中的函数了。</p>
+<h3 id="2、函数">2、函数</h3><p>就我所知的语言都是有函数这个概念的，所以就不再细说。在 JavaScript 中函数也是一个对象，那么对象又是通过什么来创建的呢？对象是作为现有示例（即原型）对象的副本而创建的，该名称就来自于这一概念，此原型对象的任何属性和方法都将显示为从原型的构造函数创建的对象的属性和方法。可以说，这些对象从其原型继承了属性和方法。</p>
+<p>普通的函数与构造函数在JavaScript中都是通过function来创建，不同的是构造函数需要通过大写来标明。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, sex</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.sex = sex;</span><br><span class="line">    <span class="keyword">this</span>.say = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'my name is '</span> + <span class="keyword">this</span>.name + <span class="string">",I'm "</span> + <span class="keyword">this</span>.age)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.say_hello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Hello,I'm"</span> + <span class="keyword">this</span>.sex)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Person.prototype.is_alive = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> wfsovereign = <span class="keyword">new</span> Person(<span class="string">'wfsovereign'</span>, <span class="number">21</span>, <span class="string">"boy"</span>);</span><br><span class="line"></span><br><span class="line">wfsovereign.say();  <span class="comment">//output my name is wfsovereign,I'm 21</span></span><br><span class="line"><span class="built_in">console</span>.log(wfsovereign.is_alive());     <span class="comment">//output true</span></span><br><span class="line"><span class="built_in">console</span>.log(wfsovereign.say_hello(), <span class="string">"----"</span>);    <span class="comment">//output undefined</span></span><br></pre></td></tr></table></figure>
+<p>此例中，创建了构造函数Person，接受参数为name，age，拥有静态方法say_hello（），实例方法say（）和is_alive（），使用构造函数创建实例对象wfsovereign，能够调用实例方法，调用静态方法时提示未定义。</p>
+<p>在构造函数后通过”.”来添加的方法或属性，称之为静态方法或静态属性，这是实例之后的对象不能访问的。因此，我们通过wfsovereign调用say_hello（）时才会提示undefined。</p>
+<p>那么，我们写在构造函数的prototype上的方法is_alive（）为什么实例过后仍然能够被访问呢？这个问题我们先放放，先来看看实例对象与构造函数间的联系，通过控制台，我们输出</p>
+<pre><code><span class="tag">console</span><span class="class">.log</span>(<span class="tag">wfsovereign</span><span class="class">.prototype</span>);
+<span class="tag">console</span><span class="class">.log</span>(<span class="tag">wfsovereign</span><span class="class">.__proto__</span>);
+<span class="tag">console</span><span class="class">.log</span>(<span class="tag">wfsovereign</span><span class="class">.constructor</span>);
+</code></pre><p>可以看到</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">undefined</span>    <span class="comment">//wfsovereign.prototype</span></span><br><span class="line">Person&#123;</span><br><span class="line">    is_alive: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">&#125;    <span class="comment">//wfsovereign.__proto__)</span></span><br><span class="line">&#123;</span><br><span class="line">    constructor: <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, sex</span>) </span>&#123;</span><br><span class="line">        is_alive: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            __proto__: <span class="built_in">Object</span></span><br><span class="line">            <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, sex</span>) </span>&#123;   <span class="comment">//wfsovereign.constructor</span></span><br><span class="line">                <span class="keyword">this</span>.name = name;</span><br><span class="line">                <span class="keyword">this</span>.age = age;</span><br><span class="line">                <span class="keyword">this</span>.sex = sex;</span><br><span class="line">                <span class="keyword">this</span>.say = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(<span class="string">'my name is '</span> + <span class="keyword">this</span>.name + <span class="string">",I'm "</span> + <span class="keyword">this</span>.age)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到，实例对象wfsovereign没有prototype属性，但是有了指向构造函数Person.prototype的<strong>proto</strong>属性以及指向构造函数的constructor属性，而Person这一构造函数也有指向object的<strong>proto</strong>属性，说明Person也是通过object创建的一个实例。这个时候我相信聪明如你就能回答上面提出的问题了—我们写在构造函数的prototype上的方法is_alive（）为什么实例过后仍然能够被访问呢？</p>
+<p>由此，我们得出，创建的每一个函数都有prototype属性，这是一个指针，它指向一个对象，这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。也就是说prototype是通过调用构造函数而创建的那个对象实例的原型对象，并且只有函数才有prototype属性，实例的对象没有该属性，即这里用Person创建的实例wfsovereign是没有prototype这一属性的。</p>
+<p>当使用构造函数（Person）创建一个实例（wfsovereign）的时候，实例内部将包含一个内部指针（<strong>proto</strong>)指向构造函数的prototype，这个连接存在于实例和构造函数的prototype之间，而不是实例与构造函数之间，实例与构造函数之间通过constructor连接。知道了prototype是什么和怎么来的之后，我们再来看JavaScript的原型链就容易多了。</p>
+<h2 id="继承与原型链">继承与原型链</h2><h3 id="1、原型链的理解">1、原型链的理解</h3><p>JavaScript 不包含传统的类继承模型，而是使用 prototype 原型模型。在JavaScript中，一共有两种类型的值,原始值和对象值。每个对象都有一个内部属性 prototype ,我们通常称之为原型。原型的值可以是一个对象，也可以是null。如果它的值是一个对象，则这个对象也一定有自己的原型。当从一个对象那里调取属性或方法时，如果该对象自身不存在这样的属性或方法，就会自己去关联的prototype对象那里寻找，如果prototype没有，就会去关联的创造者那里找，直到prototype为undefined为止，Object的prototype就是undefined即所有原型都终止于 Object.prototype，这样就形成了一条线性的链，我们称之为原型链。JavaScript正是通过原型链来调用关联创造者的属性与方法的即继承。</p>
+<h3 id="2、使用原型的好处">2、使用原型的好处</h3><p>可以让对象实例共享它所包含的属性和方法。也就是说，不必在构造函数中添加定义对象信息，而是可以直接将这些信息添加到原型中，通过指针引用的方式来调用。使用构造函数的主要问题就是每个方法都要在每个实例中创建一遍。</p>
+<p>　　</p>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag">#javascript</a>
+          
+            <a href="/tags/原型/" rel="tag">#原型</a>
+          
+            <a href="/tags/对象/" rel="tag">#对象</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/03/28/设计模式之单例模式/" rel="next" title="设计模式之单例模式">
-                <i class="fa fa-chevron-left"></i> 设计模式之单例模式
+              <a href="/2014/12/26/ignore文件的创建与使用/" rel="next" title="ignore文件的创建与使用">
+                <i class="fa fa-chevron-left"></i> ignore文件的创建与使用
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/04/22/设计模式之代理模式/" rel="prev" title="设计模式之代理模式">
-                设计模式之代理模式 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/03/23/设计模式之工厂模式/" rel="prev" title="设计模式之工厂模式">
+                设计模式之工厂模式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -311,8 +346,8 @@ Quick">
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/04/06/hello-world/"
-                   data-title="Hello World" data-url="http://wfsovereign.github.io/2015/04/06/hello-world/">
+              <div class="ds-thread" data-thread-key="2015/02/06/浅析javascript原型与对象/"
+                   data-title="浅析javascript原型与对象" data-url="http://wfsovereign.github.io/2015/02/06/浅析javascript原型与对象/">
               </div>
             
           </div>
@@ -431,7 +466,7 @@ Quick">
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick_Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create_a_new_post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run_server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate_static_files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy_to_remote_sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#知识铺垫"><span class="nav-number">1.</span> <span class="nav-text">知识铺垫</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、数据类型"><span class="nav-number">1.1.</span> <span class="nav-text">1、数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、函数"><span class="nav-number">1.2.</span> <span class="nav-text">2、函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承与原型链"><span class="nav-number">2.</span> <span class="nav-text">继承与原型链</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、原型链的理解"><span class="nav-number">2.1.</span> <span class="nav-text">1、原型链的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、使用原型的好处"><span class="nav-number">2.2.</span> <span class="nav-text">2、使用原型的好处</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

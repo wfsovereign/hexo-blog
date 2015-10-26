@@ -36,7 +36,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="git,ignore," />
 
 
 
@@ -47,19 +47,37 @@
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="在我们使用github提交本地代码时，有些库文件和日志文件是不必要提交的，那如何处理这个问题呢？这个时候我们就会用到.gitignore文件了。这里我会介绍如何创建.gitignore，以及如何处理已提交的不必要的项目文件。此次工作环境是基于ubuntu14.04。
+创建首先,.gitignore文件应该是创建在你的项目的根目录下面的，你可以使用
+
+vim .gitignore 
+
+或者是
+
+ge">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://wfsovereign.github.io/2015/04/06/hello-world/index.html">
+<meta property="og:title" content="ignore文件的创建与使用">
+<meta property="og:url" content="http://wfsovereign.github.io/2014/12/26/ignore文件的创建与使用/index.html">
 <meta property="og:site_name" content="wfsoverign'notes">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2015-10-25T13:59:11.013Z">
+<meta property="og:description" content="在我们使用github提交本地代码时，有些库文件和日志文件是不必要提交的，那如何处理这个问题呢？这个时候我们就会用到.gitignore文件了。这里我会介绍如何创建.gitignore，以及如何处理已提交的不必要的项目文件。此次工作环境是基于ubuntu14.04。
+创建首先,.gitignore文件应该是创建在你的项目的根目录下面的，你可以使用
+
+vim .gitignore 
+
+或者是
+
+ge">
+<meta property="og:updated_time" content="2015-10-26T13:52:16.639Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="ignore文件的创建与使用">
+<meta name="twitter:description" content="在我们使用github提交本地代码时，有些库文件和日志文件是不必要提交的，那如何处理这个问题呢？这个时候我们就会用到.gitignore文件了。这里我会介绍如何创建.gitignore，以及如何处理已提交的不必要的项目文件。此次工作环境是基于ubuntu14.04。
+创建首先,.gitignore文件应该是创建在你的项目的根目录下面的，你可以使用
+
+vim .gitignore 
+
+或者是
+
+ge">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -71,7 +89,7 @@ Quick">
 
 
 
-  <title> Hello World | wfsoverign'notes </title>
+  <title> ignore文件的创建与使用 | wfsoverign'notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -216,7 +234,7 @@ Quick">
             
             
               
-                Hello World
+                ignore文件的创建与使用
               
             
           </h1>
@@ -225,19 +243,34 @@ Quick">
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-04-06T20:17:37+08:00" content="2015-04-06">
-              2015-04-06
+            <time itemprop="dateCreated" datetime="2014-12-26T15:39:00+08:00" content="2014-12-26">
+              2014-12-26
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/git/" itemprop="url" rel="index">
+                    <span itemprop="name">git</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/04/06/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/06/hello-world/" itemprop="commentsCount"></span>
+                <a href="/2014/12/26/ignore文件的创建与使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/26/ignore文件的创建与使用/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -256,36 +289,58 @@ Quick">
       
 
       
-        <span itemprop="articleBody"><p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <span itemprop="articleBody"><p>在我们使用github提交本地代码时，有些库文件和日志文件是不必要提交的，那如何处理这个问题呢？这个时候我们就会用到.gitignore文件了。这里我会介绍如何创建.gitignore，以及如何处理已提交的不必要的项目文件。此次工作环境是基于ubuntu14.04。</p>
+<h3 id="创建">创建</h3><p>首先,.gitignore文件应该是创建在你的项目的根目录下面的，你可以使用</p>
+<blockquote>
+<p>vim .gitignore </p>
+</blockquote>
+<p>或者是</p>
+<blockquote>
+<p>gedit .gitignore</p>
+</blockquote>
+<p>例如我的一个.gitignore文件如下:</p>
+<pre><code>node_modules 
+<span class="built_in">dist</span>
+.tmp
+bower_components
+test
+<span class="keyword">public</span>
+</code></pre><p>这些文件都是库文件以及自动生成的模块，都是不必要提交的。下面我会讲一个关于已提交不必要文件的处理。</p>
+<h3 id="对已提交不必要文件的处理方法">对已提交不必要文件的处理方法</h3><p>有时候当我们明白这个gitignore之后才发现我们已经提交不必要的文件了，而自己又是一个较完美主义者，不愿意让那些文件存在我们库里，该怎么做呢？有什么办法吗？办法肯定是有的。</p>
+<p>那么我们现在预设的问题模型是：项目文件里有一个node_modules文件，该文件是存储自动生成的模型的文件，然后我已经把这个文件提交到github库里了，现在我明白了这个道里过后想删掉它并且以后都不再提交它。处理的方法：首先，我们再终端进入项目的根文件下面，创建.gitignore文件，并且添加需要忽略提交的文件，如上面我的一个.gitignore文件，然后输入如下命令</p>
+<blockquote>
+<p>git rm -r –cached node_modules（要删除的文件名）</p>
+</blockquote>
+<p>然后再</p>
+<blockquote>
+<p>git push</p>
+</blockquote>
+<p>最后我们去我们的github的库里去就会发现刚刚删除的东西已经成功删除啦~</p>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag">#git</a>
+          
+            <a href="/tags/ignore/" rel="tag">#ignore</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/03/28/设计模式之单例模式/" rel="next" title="设计模式之单例模式">
-                <i class="fa fa-chevron-left"></i> 设计模式之单例模式
-              </a>
-            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/04/22/设计模式之代理模式/" rel="prev" title="设计模式之代理模式">
-                设计模式之代理模式 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/02/06/浅析javascript原型与对象/" rel="prev" title="浅析javascript原型与对象">
+                浅析javascript原型与对象 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -311,8 +366,8 @@ Quick">
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/04/06/hello-world/"
-                   data-title="Hello World" data-url="http://wfsovereign.github.io/2015/04/06/hello-world/">
+              <div class="ds-thread" data-thread-key="2014/12/26/ignore文件的创建与使用/"
+                   data-title="ignore文件的创建与使用" data-url="http://wfsovereign.github.io/2014/12/26/ignore文件的创建与使用/">
               </div>
             
           </div>
@@ -431,7 +486,7 @@ Quick">
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick_Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create_a_new_post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run_server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate_static_files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy_to_remote_sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建"><span class="nav-number">1.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对已提交不必要文件的处理方法"><span class="nav-number">2.</span> <span class="nav-text">对已提交不必要文件的处理方法</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
