@@ -4,7 +4,7 @@
   <subtitle><![CDATA[A love world boy]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://wfsovereign.github.io/"/>
-  <updated>2015-10-31T13:26:54.258Z</updated>
+  <updated>2015-10-31T14:00:29.409Z</updated>
   <id>http://wfsovereign.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://wfsovereign.github.io/2015/10/31/learn-shell-operate-file/"/>
     <id>http://wfsovereign.github.io/2015/10/31/learn-shell-operate-file/</id>
     <published>2015-10-31T13:01:59.000Z</published>
-    <updated>2015-10-31T13:26:54.258Z</updated>
+    <updated>2015-10-31T14:00:29.409Z</updated>
     <content type="html"><![CDATA[<p><strong>The Linux Command Line</strong> 学习翻译 </p>
 <h3 id="mkdir">mkdir</h3><p>The mkdir command is used to create directories.It works like this:</p>
 <p>mkdir命令是用来创建目录的，这样使用：</p>
@@ -55,7 +55,24 @@
 <blockquote>
 <p>rm file…</p>
 </blockquote>
-<p>###Options<br>| Option | meaning |<br>|——–|——–|<br>|-r –recursive        |    recursive operation    |<br>|-f –force        |    force operation    |</p>
+<h3 id="Options">Options</h3><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-r –recursive</td>
+<td>recursive operation</td>
+</tr>
+<tr>
+<td>-f –force</td>
+<td>force operation</td>
+</tr>
+</tbody>
+</table>
 <h3 id="ln">ln</h3><p>The ln command is used to create either hard or symbolic links. It is used in one of two ways:</p>
 <p>ln命令用来创建硬链接，也可以创建符号链接。可以用其中一种方法使用它：</p>
 <blockquote>
