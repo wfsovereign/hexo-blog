@@ -4,7 +4,7 @@
   <subtitle><![CDATA[A love world boy]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://wfsovereign.github.io/"/>
-  <updated>2015-10-31T13:03:55.119Z</updated>
+  <updated>2015-10-31T13:26:54.258Z</updated>
   <id>http://wfsovereign.github.io/</id>
   
   <author>
@@ -19,8 +19,9 @@
     <link href="http://wfsovereign.github.io/2015/10/31/learn-shell-operate-file/"/>
     <id>http://wfsovereign.github.io/2015/10/31/learn-shell-operate-file/</id>
     <published>2015-10-31T13:01:59.000Z</published>
-    <updated>2015-10-31T13:03:55.119Z</updated>
-    <content type="html"><![CDATA[<h3 id="mkdir">mkdir</h3><p>The mkdir command is used to create directories.It works like this:</p>
+    <updated>2015-10-31T13:26:54.258Z</updated>
+    <content type="html"><![CDATA[<p><strong>The Linux Command Line</strong> 学习翻译 </p>
+<h3 id="mkdir">mkdir</h3><p>The mkdir command is used to create directories.It works like this:</p>
 <p>mkdir命令是用来创建目录的，这样使用：</p>
 <blockquote>
 <p>mkdir directory…</p>
@@ -83,12 +84,13 @@
 <p>一个符号链接指向一个文件，而这个符号链接本身与其他的符号链接几乎没有区别。比如，如果你向一个符号链接里写入一些东西，那么关联的文件也会被写入。然而当你删除一个符号链接时，仅仅这个链接被删除，不会影响到文件本身。如果这个文件在符号链接之前被删除了，这个链接将会继续存在，但不会指向任何东西。这种情况下，这个链接被称为坏链接。在许多实现中，ls命令会以可区分的颜色来显示这些坏链接，比如红色，来显示他们的存在。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h3 id="mkdir">mkdir</h3><p>The mkdir command is used to create directories.It works like this:</p>
-<p>mkdir命令是用来创建目录的，这样使用：</p>
-<blockquote]]>
+    <![CDATA[<p><strong>The Linux Command Line</strong> 学习翻译 </p>
+<h3 id="mkdir">mkdir</h3><p>The mkdir command is used to create directories.It works li]]>
     </summary>
     
       <category term="linux" scheme="http://wfsovereign.github.io/tags/linux/"/>
+    
+      <category term="个人学习翻译" scheme="http://wfsovereign.github.io/tags/%E4%B8%AA%E4%BA%BA%E5%AD%A6%E4%B9%A0%E7%BF%BB%E8%AF%91/"/>
     
       <category term="文件" scheme="http://wfsovereign.github.io/tags/%E6%96%87%E4%BB%B6/"/>
     
@@ -99,8 +101,9 @@
     <link href="http://wfsovereign.github.io/2015/10/28/learn-shell-explore-file-system/"/>
     <id>http://wfsovereign.github.io/2015/10/28/learn-shell-explore-file-system/</id>
     <published>2015-10-28T12:57:54.000Z</published>
-    <updated>2015-10-31T13:03:38.967Z</updated>
-    <content type="html"><![CDATA[<h3 id="ls">ls</h3><p>With it, we can see directory contents and determine a variety of important file and directory attributes.</p>
+    <updated>2015-10-31T13:26:54.258Z</updated>
+    <content type="html"><![CDATA[<p><strong>The Linux Command Line</strong> 学习翻译 </p>
+<h3 id="ls">ls</h3><p>With it, we can see directory contents and determine a variety of important file and directory attributes.</p>
 <p>通过它，我们可以看见目录的内容、重要的文件和目录属性</p>
 <blockquote>
 <p>~  ls<br>Applications   Downloads      Music          VirtualBox VMs company<br>Desktop        Library        Pictures       build          doc<br>Documents      Movies         Public         code           system<br>➜  ~</p>
@@ -114,8 +117,8 @@
 <p>甚至可以列出多个目录的内容，在这个例子中，将会列出home目录和code目录的内容：</p>
 <blockquote>
 <p>  ~  ls ~ ./code<br>./code:<br>N-chat           crawl-info       muying           npm_ref_wf_test  test<br>cn_admin_backend geoip-cn         node-geoip       npm_test999      tmp<br>cn_backend       mail_test        nodeclub         personal         zhongzhong</p>
-</blockquote>
 <p>/Users/shining3d-fyqj:<br>Applications   Downloads      Music          VirtualBox VMs company<br>Desktop        Library        Pictures       build          doc<br>Documents      Movies         Public         code           system<br>➜  ~</p>
+</blockquote>
 <p>Most commands use options consisting of a single character preceded by a dash, for example, “-l”, but many commands, including those from the GUN project, also support long options, consisting of a word preceded by two dashes. Also, many commands allow multiple short options to be strung together. In this example, the ls command is given two options, the “l” options to produce long format output, and the “t” option to sort the result by the file’s modification time.</p>
 <p>大多数命令使用的选项是使用一个中划线加一个字符组成，例如“l”，但是许多命令，包括来自于UGN项目的命令，也支持长选项，长选项是由两个中划线加一个单词组成。当然，许多命令允许使用多个短选项串一起使用。下面这个例子有两个选项，“l”产生长格式输出，“t”得到按修改时间的先后顺序排序的结果。</p>
 <blockquote>
@@ -133,11 +136,13 @@
 </blockquote>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h3 id="ls">ls</h3><p>With it, we can see directory contents and determine a variety of important file and directory attributes.</p>
-<p>通过它，]]>
+    <![CDATA[<p><strong>The Linux Command Line</strong> 学习翻译 </p>
+<h3 id="ls">ls</h3><p>With it, we can see directory contents and determine a variety of]]>
     </summary>
     
       <category term="shell" scheme="http://wfsovereign.github.io/tags/shell/"/>
+    
+      <category term="个人学习翻译" scheme="http://wfsovereign.github.io/tags/%E4%B8%AA%E4%BA%BA%E5%AD%A6%E4%B9%A0%E7%BF%BB%E8%AF%91/"/>
     
       <category term="文件" scheme="http://wfsovereign.github.io/tags/%E6%96%87%E4%BB%B6/"/>
     
