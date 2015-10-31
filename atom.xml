@@ -4,7 +4,7 @@
   <subtitle><![CDATA[A love world boy]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://wfsovereign.github.io/"/>
-  <updated>2015-10-25T14:59:33.129Z</updated>
+  <updated>2015-10-31T13:03:55.119Z</updated>
   <id>http://wfsovereign.github.io/</id>
   
   <author>
@@ -13,6 +13,135 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Linux学习之文件操作]]></title>
+    <link href="http://wfsovereign.github.io/2015/10/31/learn-shell-operate-file/"/>
+    <id>http://wfsovereign.github.io/2015/10/31/learn-shell-operate-file/</id>
+    <published>2015-10-31T13:01:59.000Z</published>
+    <updated>2015-10-31T13:03:55.119Z</updated>
+    <content type="html"><![CDATA[<h3 id="mkdir">mkdir</h3><p>The mkdir command is used to create directories.It works like this:</p>
+<p>mkdir命令是用来创建目录的，这样使用：</p>
+<blockquote>
+<p>mkdir directory…</p>
+</blockquote>
+<p><strong>A note on notation:</strong> When three periods follow an argument in the description of a command(as above),it means that the argument can be repeated,thus:</p>
+<p>注意表示法：当遇见一个后面有三个圆点的命令（如上所示），这表示那个参数可以重复：</p>
+<blockquote>
+<p>  tmp  mkdir max<br>➜  tmp  ls<br>a.json                   max                      server.js</p>
+<p>➜  tmp  mkdir max1 max2 max3<br>➜  tmp  ls<br>a.json                   max1                     reade_file.js<br>clone_obj.js             max2                     server.js<br>getIp.js                 max3                     </p>
+</blockquote>
+<h3 id="cp">cp</h3><p>The cp command copies files or directories. It can be used two different ways:</p>
+<p>cp命令，复制文件或目录，它有两种使用方法：</p>
+<blockquote>
+<p>cp file1 file2</p>
+</blockquote>
+<p>to copy the single file or directory “file1” to file or directory “file2” and :</p>
+<p>复制单个文件或目录，和：</p>
+<blockquote>
+<p>cp file… directory</p>
+</blockquote>
+<p>to copy multiple files(either files or directories)into a direcotory.</p>
+<p>复制多个文件或目录到一个目录下。</p>
+<h3 id="mv">mv</h3><p>The mv command performs both file moving and file renaming, depending on how it is used. In erther case,the original filename no longer exists after the operation. mv is used in much the same way as cp:</p>
+<p>mv命令可执行文件移动以及文件重命名两种任务，这依赖于如何使用它。任何一种情况下，在此操作之下原始文件都将不再存在。mv命令使用方法同cp一样：</p>
+<blockquote>
+<p>mv file1 file2</p>
+<p>mv file1 file2 file3 code</p>
+</blockquote>
+<h3 id="rm">rm</h3><p>The rm command is used to remove(delete) files and directories:</p>
+<p>rm命令用来删除文件或者目录：</p>
+<blockquote>
+<p>rm file…</p>
+</blockquote>
+<p>###Options<br>| Option | meaning |<br>|——–|——–|<br>|-r –recursive        |    recursive operation    |<br>|-f –force        |    force operation    |</p>
+<h3 id="ln">ln</h3><p>The ln command is used to create either hard or symbolic links. It is used in one of two ways:</p>
+<p>ln命令用来创建硬链接，也可以创建符号链接。可以用其中一种方法使用它：</p>
+<blockquote>
+<p>ln file link</p>
+</blockquote>
+<p>to create a hard link, and:</p>
+<p>创建硬链接，和：</p>
+<blockquote>
+<p>ln -s item link</p>
+</blockquote>
+<p>to create a aymbolic link “item” is erther a file or a directory.</p>
+<p>创建符号链接，“item”可以是一个文件或是一个目录。</p>
+<h3 id="hard_link">hard link</h3><p>Hard links are the original Unix way of creating links, compared to symbolic links, which are more modern. By default, every file has a single hard link that gives the file its name. When we create a hard link, we create an additional directory entry for a file. Hard links have two important limitations:</p>
+<p>硬链接最初是Unix创建的一种链接方式，和符号链接比起来，而符号链接更加现代.在默认方式下，每个文件有一个硬链接，这个硬链接就是文件的别名。当我们创建一个硬链接时，我们也就为这个文件创建一个额外的入口。硬链接有两个重要的局限性：</p>
+<ol>
+<li>A hard link cannot reference a file outside its own file system. This means a link may not reference a file that is not on the same dis partition as the link itself.</li>
+<li><p>A hard link may not reference a directory.</p>
+</li>
+<li><p>一个硬链接不能关联一个它所在文件系统之外的文件。这是说一个链接不能关联与链接本身不再同一个磁盘分区上的文件。</p>
+</li>
+<li>一个硬链接不能关联一个目录。</li>
+</ol>
+<h3 id="symbolic_link">symbolic link</h3><p>Symbolic links were created to overcome the limitations of hard links. Symbolic links work by creating a special type of file that contains a text pointer to the referenced file or directory.In this regard, they operate in much the same way as a Windows shortcut though of course, they predate the Windows feature by many years.</p>
+<p>符号链接的创建是为了克服硬链接的局限性。符号链接通过创建一个包含指向关联的文件或目录的文本指针的特别的文件类型来工作。在这一方面，他们和Windows的快捷方式差不多，当然，符号链接早于Windows的快捷方式很多年。</p>
+<p>A file pointed to by a symbolic link, and the symbolic link itself are largely indistinguishable from one another. For example, if you write some something to symbolic link, the referenced file is also written to. However when you delete a symbolic link, only the link is deleted, not the file itself. If the file is deleted before the symbolic link, the link will continue to exist, but will point to nothing. In this case, the link is said to be broken. In many implementations, the ls command will display broken links in a distinguishing color, such as red, to reveal their presence.</p>
+<p>一个符号链接指向一个文件，而这个符号链接本身与其他的符号链接几乎没有区别。比如，如果你向一个符号链接里写入一些东西，那么关联的文件也会被写入。然而当你删除一个符号链接时，仅仅这个链接被删除，不会影响到文件本身。如果这个文件在符号链接之前被删除了，这个链接将会继续存在，但不会指向任何东西。这种情况下，这个链接被称为坏链接。在许多实现中，ls命令会以可区分的颜色来显示这些坏链接，比如红色，来显示他们的存在。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="mkdir">mkdir</h3><p>The mkdir command is used to create directories.It works like this:</p>
+<p>mkdir命令是用来创建目录的，这样使用：</p>
+<blockquote]]>
+    </summary>
+    
+      <category term="linux" scheme="http://wfsovereign.github.io/tags/linux/"/>
+    
+      <category term="文件" scheme="http://wfsovereign.github.io/tags/%E6%96%87%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Linux学习之探索文件系统]]></title>
+    <link href="http://wfsovereign.github.io/2015/10/28/learn-shell-explore-file-system/"/>
+    <id>http://wfsovereign.github.io/2015/10/28/learn-shell-explore-file-system/</id>
+    <published>2015-10-28T12:57:54.000Z</published>
+    <updated>2015-10-31T13:03:38.967Z</updated>
+    <content type="html"><![CDATA[<h3 id="ls">ls</h3><p>With it, we can see directory contents and determine a variety of important file and directory attributes.</p>
+<p>通过它，我们可以看见目录的内容、重要的文件和目录属性</p>
+<blockquote>
+<p>~  ls<br>Applications   Downloads      Music          VirtualBox VMs company<br>Desktop        Library        Pictures       build          doc<br>Documents      Movies         Public         code           system<br>➜  ~</p>
+</blockquote>
+<p>Besides the current working directory,we can specify the directory to list,like so:</p>
+<p>除了当前工作目录外，还可以指定别的目录，像这样：</p>
+<blockquote>
+<p>ls ./code<br>N-chat           crawl-info       muying           npm_ref_wf_test  test<br>cn_admin_backend geoip-cn         node-geoip       npm_test999      tmp<br>cn_backend       mail_test        nodeclub         personal         zhongzhong<br>➜  ~</p>
+</blockquote>
+<p>Or even specify multiple directories. In this example we will list both the user’s home directory(symbolized by the “~” character) and the code directory:</p>
+<p>甚至可以列出多个目录的内容，在这个例子中，将会列出home目录和code目录的内容：</p>
+<blockquote>
+<p>  ~  ls ~ ./code<br>./code:<br>N-chat           crawl-info       muying           npm_ref_wf_test  test<br>cn_admin_backend geoip-cn         node-geoip       npm_test999      tmp<br>cn_backend       mail_test        nodeclub         personal         zhongzhong</p>
+</blockquote>
+<p>/Users/shining3d-fyqj:<br>Applications   Downloads      Music          VirtualBox VMs company<br>Desktop        Library        Pictures       build          doc<br>Documents      Movies         Public         code           system<br>➜  ~</p>
+<p>Most commands use options consisting of a single character preceded by a dash, for example, “-l”, but many commands, including those from the GUN project, also support long options, consisting of a word preceded by two dashes. Also, many commands allow multiple short options to be strung together. In this example, the ls command is given two options, the “l” options to produce long format output, and the “t” option to sort the result by the file’s modification time.</p>
+<p>大多数命令使用的选项是使用一个中划线加一个字符组成，例如“l”，但是许多命令，包括来自于UGN项目的命令，也支持长选项，长选项是由两个中划线加一个单词组成。当然，许多命令允许使用多个短选项串一起使用。下面这个例子有两个选项，“l”产生长格式输出，“t”得到按修改时间的先后顺序排序的结果。</p>
+<blockquote>
+<p>➜  ~  ls -lt<br>total 0<br>drwx——+ 50 shining3d-fyqj  staff  1700 10 28 11:13 Downloads<br>drwxr-xr-x   8 shining3d-fyqj  staff   272 10 27 10:38 company<br>drwxr-xr-x   4 shining3d-fyqj  staff   136 10 26 17:20 VirtualBox VMs<br>drwxr-xr-x   4 shining3d-fyqj  staff   136 10 26 16:44 system<br>drwx——@ 53 shining3d-fyqj  staff  1802 10 26 16:26 Library<br>drwxr-xr-x  18 shining3d-fyqj  staff   612 10 26 14:03 code<br>drwx——+  5 shining3d-fyqj  staff   170 10 21 11:07 Pictures<br>drwxr-xr-x   9 shining3d-fyqj  staff   306 10 20 16:35 doc<br>drwxr-xr-x   4 shining3d-fyqj  staff   136 10 20 14:41 build<br>drwx——+  4 shining3d-fyqj  staff   136 10 16 09:14 Music<br>drwx——+  5 shining3d-fyqj  staff   170  9 24 15:24 Desktop<br>drwx——+ 10 shining3d-fyqj  staff   340  9 21 14:55 Documents<br>drwx——   4 shining3d-fyqj  staff   136  8 17 10:31 Applications<br>drwx——+  3 shining3d-fyqj  staff   102  8 17 10:26 Movies<br>drwxr-xr-x+  5 shining3d-fyqj  staff   170  8 17 10:26 Public<br>➜  ~</p>
+</blockquote>
+<p>We’ll add the long option “–reverse” to reverse the order of the sort:</p>
+<p>得到的结果中还有delete权限的信息</p>
+<blockquote>
+<p>➜  ~  ls -lt -reverse<br>total 0<br>0 drwxr-xr-x+  5 shining3d-fyqj  staff   170  8 17 10:26 Public<br> 0: group:everyone deny delete<br>0 drwx——+  3 shining3d-fyqj  staff   102  8 17 10:26 Movies<br> 0: group:everyone deny delete<br>0 drwx——   4 shining3d-fyqj  staff   136  8 17 10:31 Applications<br>0 drwx——+ 10 shining3d-fyqj  staff   340  9 21 14:55 Documents<br> 0: group:everyone deny delete<br>0 drwx——+  5 shining3d-fyqj  staff   170  9 24 15:24 Desktop<br> 0: group:everyone deny delete<br>0 drwx——+  4 shining3d-fyqj  staff   136 10 16 09:14 Music<br> 0: group:everyone deny delete<br>0 drwxr-xr-x   4 shining3d-fyqj  staff   136 10 20 14:41 build<br>0 drwxr-xr-x   9 shining3d-fyqj  staff   306 10 20 16:35 doc<br>0 drwx——+  5 shining3d-fyqj  staff   170 10 21 11:07 Pictures<br> 0: group:everyone deny delete<br>0 drwxr-xr-x  18 shining3d-fyqj  staff   612 10 26 14:03 code<br>0 drwx——@ 53 shining3d-fyqj  staff  1802 10 26 16:26 Library<br> 0: group:everyone deny delete<br>0 drwxr-xr-x   4 shining3d-fyqj  staff   136 10 26 16:44 system<br>0 drwxr-xr-x   4 shining3d-fyqj  staff   136 10 26 17:20 VirtualBox VMs<br>0 drwxr-xr-x   8 shining3d-fyqj  staff   272 10 27 10:38 company<br>0 drwx——+ 50 shining3d-fyqj  staff  1700 10 28 11:13 Downloads<br> 0: group:everyone deny delete<br>➜  ~</p>
+</blockquote>
+<h3 id="file">file</h3><p>As we explore the system it will be useful to know what files contain. To do this we will use the file command to determine a file’s type. We can invoke the file command this way:</p>
+<p>随着探索文件系统的进行，知道文件信息是很有用的，可用file命令达此目的。我们可以这样调用：</p>
+<blockquote>
+<p>➜  tmp  file server.js<br>server.js: UTF-8 Unicode text</p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="ls">ls</h3><p>With it, we can see directory contents and determine a variety of important file and directory attributes.</p>
+<p>通过它，]]>
+    </summary>
+    
+      <category term="shell" scheme="http://wfsovereign.github.io/tags/shell/"/>
+    
+      <category term="文件" scheme="http://wfsovereign.github.io/tags/%E6%96%87%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[New Begin]]></title>
