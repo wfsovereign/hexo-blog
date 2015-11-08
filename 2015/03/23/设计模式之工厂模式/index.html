@@ -1,0 +1,821 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  
+    <link href='//fonts.lug.ustc.edu.cn/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  
+
+
+<link rel="stylesheet" type="text/css" href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" />
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.2"/>
+
+
+    <meta name="description" content="尽其力，致其善，淡成败" />
+
+
+
+  <meta name="keywords" content="java,工厂模式,设计模式," />
+
+
+
+  <link rel="alternate" href="/atom.xml" title="wfsoverign'notes" type="application/atom+xml" />
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+<meta name="description" content="最近在学习设计模式的路上越走越远…
+今天主要记录记录一下学习的工厂模式。
+工厂模式简历1、由来　　　　当我们创建一个对象，而这个对象的创建过程序纷繁复杂，可能导致大量的重复代码的时候，工厂模式出现了。工厂方法模式通过定义一个单独的创建对象的方法来解决这些问题。由子类实现这个方法来创建具体类型的对象。也就是说，在我们的实际运用中，工厂就是一个用来创建其他对象的对象。
+2、实质定义一个创建对象的接口，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式之工厂模式">
+<meta property="og:url" content="http://wfsovereign.github.io/2015/03/23/设计模式之工厂模式/index.html">
+<meta property="og:site_name" content="wfsoverign'notes">
+<meta property="og:description" content="最近在学习设计模式的路上越走越远…
+今天主要记录记录一下学习的工厂模式。
+工厂模式简历1、由来　　　　当我们创建一个对象，而这个对象的创建过程序纷繁复杂，可能导致大量的重复代码的时候，工厂模式出现了。工厂方法模式通过定义一个单独的创建对象的方法来解决这些问题。由子类实现这个方法来创建具体类型的对象。也就是说，在我们的实际运用中，工厂就是一个用来创建其他对象的对象。
+2、实质定义一个创建对象的接口，">
+<meta property="og:updated_time" content="2015-10-26T14:10:37.104Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设计模式之工厂模式">
+<meta name="twitter:description" content="最近在学习设计模式的路上越走越远…
+今天主要记录记录一下学习的工厂模式。
+工厂模式简历1、由来　　　　当我们创建一个对象，而这个对象的创建过程序纷繁复杂，可能导致大量的重复代码的时候，工厂模式出现了。工厂方法模式通过定义一个单独的创建对象的方法来解决这些问题。由子类实现这个方法来创建具体类型的对象。也就是说，在我们的实际运用中，工厂就是一个用来创建其他对象的对象。
+2、实质定义一个创建对象的接口，">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+
+
+  <title> 设计模式之工厂模式 | wfsoverign'notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?cfb2583e3282d0c95ee5968f0f44afb4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">wfsoverign'notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">A love world boy</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                设计模式之工厂模式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-03-23T15:23:00+08:00" content="2015-03-23">
+              2015-03-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/03/23/设计模式之工厂模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/23/设计模式之工厂模式/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>最近在学习设计模式的路上越走越远…</p>
+<p>今天主要记录记录一下学习的工厂模式。</p>
+<h2 id="工厂模式简历">工厂模式简历</h2><h3 id="1、由来">1、由来　　　　</h3><p>当我们创建一个对象，而这个对象的创建过程序纷繁复杂，可能导致大量的重复代码的时候，工厂模式出现了。工厂方法模式通过定义一个单独的创建对象的方法来解决这些问题。由子类实现这个方法来创建具体类型的对象。也就是说，在我们的实际运用中，工厂就是一个用来创建其他对象的对象。</p>
+<h3 id="2、实质">2、实质</h3><p>定义一个创建对象的接口，但让实现这个接口的类来决定实例化哪个类。工厂方法让类的实例化推迟到子类中进行。</p>
+<h3 id="3、现状介绍">3、现状介绍</h3><p>工厂模式目前有三个分支，简单工厂模式，工厂方法模式和抽象工厂方法模式，其中，我主要学习的是抽象工厂方法模式，因为该方法是工厂模式中最高层的方法。简单工厂模式，工厂类根据传参不同得到不同的产品。工厂方法模式能够创建这个系列中的各种产品，比如，iphone的各种配件。而抽象工厂模式作为更高级的模式，它可以创建整个苹果公司各个产品流水线，比如，他可以创建生产iphone配件的工厂，可以创建生产ipad配件的工厂等等。那么，抽象工厂模式与工厂方法模式的最大区别就在于，工厂方法模式针对的是一个产品等级结构，它能够创建这一个等级结构中的产品族；而抽象工厂模式则需要面对多个产品等级结构，也就是说，抽象工厂方法模式可以工厂方法模式中的工厂。</p>
+<h3 id="4、三分支的关系">4、三分支的关系</h3><p>简单工厂模式通常伴随着对象的具体类型与工厂具体类型的一一对应，客户端代码根据需要选择合适的具体类型工厂使用。当这个选择包含复杂的逻辑时，就可以创建一个单一的工厂类，用以包含这种选择逻辑，根据参数的不同选择实现不同的具体对象。这个工厂类不需要由每个具体产品实现一个自己的具体的工厂类，所以可以将工厂方法设置为静态方法，这就有了工厂方法模式。而抽象工厂方法模式便是封装着这样一组有着共同主题的工厂方法模式中的工厂。</p>
+<p>　　</p>
+<h2 id="三分支的应用场景">三分支的应用场景</h2><h3 id="1、简单工厂模式">1、简单工厂模式</h3><p>当我们的主程序中需要自己手动初始化一个对象，但是我们并不想关注具体的初始化过程，这个时候简单工厂模式就是您的选择。</p>
+<h3 id="2、工厂方法模式">2、工厂方法模式</h3><p>当你觉得传入参数的这种简单的工厂模式让你程序容易出错，并且程序中的if-else让你的程序看起来有些臃肿，这个时候工厂方法模式就是您的选择。</p>
+<h3 id="3、抽象工厂方法模式">3、抽象工厂方法模式</h3><p>当你工厂类需要修改时，而在工厂方法模式中需要修改原有的工厂类，这就违背了设计原则中的OCP（开放闭合原则），这个时候，抽象工厂方法模式就是您的选择。 </p>
+<h2 id="实际应用">实际应用</h2><p>说不如做，看的再多不自己亲手做一做来的有效率，这便是我学习工厂模式之后的心得。</p>
+<p>首先，模拟场景。创建宝马车，X6和5系的，那么首先的有一个抽象的汽车工厂，CarFactory，由它来生成X6和5系的工厂，一个汽车工厂生产出来的汽车至少得有个壳，发动机，变速箱啥的，所有就有了方法。创建CarFactory如下：</p>
+<pre><code><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">CarFactory</span> {
+  <span class="function"><span class="keyword">public</span> CarFrame <span class="title">createCarFrame</span>(<span class="params"></span>)</span>;
+  <span class="function"><span class="keyword">public</span> Engine <span class="title">createEngine</span>(<span class="params"></span>)</span>;
+  <span class="function"><span class="keyword">public</span> Gearbox <span class="title">createGearbox</span>(<span class="params"></span>)</span>;
+ }
+</code></pre><p>一个汽车的基本配件都出来了，那么所有的配件都应该有各自的接口，我们再分别创建Engine，Gearbox和CarFrame，Engine如下（Gearbox、CarFrame类似）：</p>
+<pre><code><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">Engine</span> {
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createEngine</span>(<span class="params"></span>)</span>;
+ }
+</code></pre><p>然后我们的X6和5系的都应该有这些个接口吧，我们在分别创建他们各自的Engine，Gearbox和CarFrame，X6的Engine：</p>
+<pre><code> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BwmXSixEngine</span> <span class="keyword">implements</span> <span class="title">Engine</span> </span>{
+     <span class="keyword">private</span> String emissions;
+     <span class="function"><span class="keyword">public</span> <span class="title">BwmXSixEngine</span><span class="params">(String emissions)</span></span>{
+         <span class="keyword">this</span>.emissions = emissions;
+   }
+<span class="annotation">@Override</span>
+<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createEngine</span><span class="params">()</span> </span>{
+     System.out.println(<span class="string">"this BWM XDrive engine,and emissions is "</span>+ <span class="keyword">this</span>.emissions);
+     }
+}
+</code></pre><p>5系的Engine：</p>
+<pre><code> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BwmFiveSeriesEngine</span> <span class="keyword">implements</span> <span class="title">Engine</span> </span>{
+<span class="keyword">private</span> <span class="keyword">final</span> String emissions;
+<span class="function"><span class="keyword">public</span> <span class="title">BwmFiveSeriesEngine</span><span class="params">(String emissions)</span></span>{
+    <span class="keyword">this</span>.emissions = emissions;
+    }
+ <span class="annotation">@Override</span>
+   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createEngine</span><span class="params">()</span> </span>{
+       System.out.println(<span class="string">"this is BWMFiveSeriesEngine it's emissions of "</span>+<span class="keyword">this</span>.emissions);
+}
+}
+</code></pre><p>现在，X6和5系就只差装箱，我们就来创建他们的工厂吧，5系：</p>
+<pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BwmFiveSeriesFactory</span> <span class="keyword">implements</span> <span class="title">CarFactory</span></span>{
+<span class="annotation">@Override</span>
+ <span class="function"><span class="keyword">public</span> CarFrame <span class="title">createCarFrame</span><span class="params">()</span> </span>{
+  <span class="keyword">return</span> <span class="keyword">new</span> BwmFiveSeriesCarFrame(<span class="string">"中大型车"</span>, <span class="keyword">new</span> <span class="keyword">int</span>[]{<span class="number">5047</span>,<span class="number">1860</span>,<span class="number">1491</span>},<span class="string">"4门5座三厢车"</span>);
+}
+<span class="annotation">@Override</span>
+ <span class="function"><span class="keyword">public</span> Engine <span class="title">createEngine</span><span class="params">()</span> </span>{
+      <span class="keyword">return</span> <span class="keyword">new</span> BwmFiveSeriesEngine(<span class="string">"2.0T"</span>);
+  }
+<span class="annotation">@Override</span>
+<span class="function"><span class="keyword">public</span> Gearbox <span class="title">createGearbox</span><span class="params">()</span> </span>{
+    <span class="keyword">return</span> <span class="keyword">new</span> BwmFIveSeriesGearbox(<span class="string">"8挡手自一体"</span>);
+}
+}
+</code></pre><p>X6：</p>
+<pre><code> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BwmXSixFactory</span> <span class="keyword">implements</span> <span class="title">CarFactory</span> </span>{
+    <span class="annotation">@Override</span>
+    <span class="function"><span class="keyword">public</span> CarFrame <span class="title">createCarFrame</span><span class="params">()</span> </span>{
+        <span class="keyword">return</span> <span class="keyword">new</span> BwmXSixCarFrame(<span class="string">"中大型SUV"</span>,<span class="keyword">new</span> <span class="keyword">int</span>[]{<span class="number">4929</span>,<span class="number">1983</span>,<span class="number">1709</span>},<span class="string">"5门5座SUV"</span>);
+    }
+   <span class="annotation">@Override</span>
+    <span class="function"><span class="keyword">public</span> Engine <span class="title">createEngine</span><span class="params">()</span> </span>{
+        <span class="keyword">return</span> <span class="keyword">new</span> BwmXSixEngine(<span class="string">"3.0T"</span>);
+   }
+   <span class="annotation">@Override</span>
+     <span class="function"><span class="keyword">public</span> Gearbox <span class="title">createGearbox</span><span class="params">()</span> </span>{
+       <span class="keyword">return</span> <span class="keyword">new</span> BwmXSixGearbox(<span class="string">"8挡手自一体"</span>);
+   }
+}
+</code></pre><p>程序写到这里也快结束了，我们自己在写一个汽车超市来生成这些对象就好了，希望你有一次愉快的购物经历，哈哈～</p>
+<h2 id="总结">总结</h2><p>在抽象工厂模式的运用中，需要有一个总的抽象工厂，这个工厂制造可以生产具体东西的工厂类，比如，CarFactory和BwmXSixFactory之间的关系。然后就是接口的运用。接口对于高抽象层级的类有很大作用，站在高处便能规定对继承该接口的类的行为，但并不具体到每一个继承的类的行为。最后，工厂模式成功的隐藏了类的行为，满足迪米特法则，调用者根本不关心怎么实现的，只要一个接口可以调用便行。</p>
+<p>自己在设计模式这一块还比较弱，以后还需多多学习。设计模式每一个都不是太难，重要的是各个击破之后，将他们拿捏在手中能够灵活的运用到实例的工作中。所以，重要的还是自己能力的提升，加油～</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag">#java</a>
+          
+            <a href="/tags/工厂模式/" rel="tag">#工厂模式</a>
+          
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/02/06/浅析javascript原型与对象/" rel="next" title="浅析javascript原型与对象">
+                <i class="fa fa-chevron-left"></i> 浅析javascript原型与对象
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/03/28/设计模式之单例模式/" rel="prev" title="设计模式之单例模式">
+                设计模式之单例模式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/03/23/设计模式之工厂模式/"
+                   data-title="设计模式之工厂模式" data-url="http://wfsovereign.github.io/2015/03/23/设计模式之工厂模式/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="wfsovereign" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">wfsovereign</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">尽其力，致其善，淡成败</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wfsovereign" target="_blank">
+                  <i class="fa fa-github fa-fw"></i> github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2504292391/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank">
+                  <i class="fa fa-weibo fa-fw"></i> weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/feng-yang-qi-jun" target="_blank">
+                  <i class="fa fa-zhihu fa-fw"></i> zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">Links</p>
+            
+              <span class="links-of-author-item">
+                <a href="http://home.cnblogs.com/u/wfsovereign/" target="_blank">CnBlog</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂模式简历"><span class="nav-number">1.</span> <span class="nav-text">工厂模式简历</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、由来"><span class="nav-number">1.1.</span> <span class="nav-text">1、由来　　　　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、实质"><span class="nav-number">1.2.</span> <span class="nav-text">2、实质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、现状介绍"><span class="nav-number">1.3.</span> <span class="nav-text">3、现状介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、三分支的关系"><span class="nav-number">1.4.</span> <span class="nav-text">4、三分支的关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三分支的应用场景"><span class="nav-number">2.</span> <span class="nav-text">三分支的应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、简单工厂模式"><span class="nav-number">2.1.</span> <span class="nav-text">1、简单工厂模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、工厂方法模式"><span class="nav-number">2.2.</span> <span class="nav-text">2、工厂方法模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、抽象工厂方法模式"><span class="nav-number">2.3.</span> <span class="nav-text">3、抽象工厂方法模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实际应用"><span class="nav-number">3.</span> <span class="nav-text">实际应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wfsovereign</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wfsovereign"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.2" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+
+      isMobile() && FastClick.attach(document.body);
+
+      // Define Motion Sequence.
+      motionIntegrator
+        .add(motionMiddleWares.logo)
+        .add(motionMiddleWares.menu)
+        .add(motionMiddleWares.backToTop)
+        .add(motionMiddleWares.postList)
+        .add(motionMiddleWares.sidebar);
+
+      // Bootstrap Motion.
+      motionIntegrator.bootstrap();
+    });
+  </script>
+
+  
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
