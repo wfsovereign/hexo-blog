@@ -1,18 +1,41 @@
+#!/usr/bin/env bash
 
+function prepareBuild {
+    cp _config.content.yml _config.yml
+}
+
+function getDeployString () {
+    deployType=$1
+    repo=$2
+    branch=$3
+
+    deployString="deploy: \\n
+        type: ${deployType} \\n
+        repo: ${repo} "
+    branchLength=${#branch}
+
+    if [ $branchLength -gt  0 ]
+    then
+        deployString="$deployString \\n
+       	branch: $branch"
+    fi
+
+     echo $deployString
+}
 
 function build4git {
-    cp _.config.content.yml _config.yml
-    echo "deploy: \\n
+    prepareBuild
+     echo "deploy: \\n
   type: git \\n
   repository: git@github.com:wfsovereign/wfsovereign.github.io.git \\n
   branch: master" >> _config.yml
   hexo d -g
   rm ./_config.yml
-  echo "deploy done"
+    echo "deploy done"
 }
 
 function build4heroku {
-    cp _.config.content.yml _config.yml
+    prepareBuild
     echo "deploy: \\n
   type: heroku \\n
   repository: https://git.heroku.com/wfsovereign-blog.git" >> _config.yml
