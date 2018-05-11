@@ -2,8 +2,8 @@ title: NPM使用技巧
 date: 2017-04-04 21:53:46
 tags: ['npm', '方法记录','成长']
 category: npm
-thumbnail: thumbnail/npm.jpg
-banner: thumbnail/npm.jpg
+thumbnail: /thumbnail/npm.jpg
+banner: /thumbnail/npm.jpg
 ---
 
 
@@ -176,6 +176,25 @@ Nodejs项目中最常见的一些版本标识( *, ~, ^ )，经常忘了它们的
     "bar": "file:../foo/bar"
   }
 ```
+
+## tips
+
+* 如何查看当前node安装的包,并且只查看第一层级
+
+> npm list -g --depth=0
+
+如下所示:
+
+> ├── @commitlint/cli@6.0.2
+  ├── @commitlint/config-angular@6.0.2
+  ├── @storybook/addon-actions@3.3.10
+  ├── @storybook/addon-links@3.3.10
+  ├── @storybook/addon-notes@3.3.11
+  ├── @storybook/addons@3.3.10
+  ├── @storybook/react@3.3.10
+  ├── @types/classnames@2.2.3
+  ├── @types/enzyme@3.1.8
+  ├── @types/jest@22.1.0
 
 
 
