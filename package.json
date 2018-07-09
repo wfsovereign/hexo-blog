@@ -9,7 +9,7 @@
     "deploy": "sh deploy.sh"
   },
   "dependencies": {
-    "hexo": "^3.2.0",
+    "hexo": "^3.7.1",
     "hexo-deployer-git": "0.3.1",
     "hexo-deployer-heroku": "0.1.2",
     "hexo-generator-archive": "^0.1.4",
