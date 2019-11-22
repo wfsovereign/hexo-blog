@@ -76,3 +76,7 @@ theme: icarus
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
+sitemap:
+  path: sitemap.xml
+
+baidu_push: true
